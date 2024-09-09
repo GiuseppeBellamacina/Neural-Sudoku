@@ -19,6 +19,8 @@ class Grid():
     
     @classmethod
     def from_dim(cls, square_root_dim):
+        if square_root_dim < 1:
+            raise ValueError('The dimension must be greater than 0')
         tmp = cls([], square_root_dim)
         tmp.generate_grid()
         return tmp
@@ -140,6 +142,7 @@ class Grid():
 
     def init_solve(self):
         if self.check_grid():
+            self.index = 0
             self.find_all_zeros()
             self.calculate_skippable_numbers()
             return True
@@ -157,7 +160,7 @@ class Grid():
         kwargs:
             - show_kwargs: (steps, sleep) -> steps: numero di passi per visualizzare la griglia, sleep: tempo di attesa tra un passo e l'altro
         """
-        if self.index == 0:
+        if self.count == 0:
             if not self.init_solve():
                 return False
         if self.index == len(self.zeros):
@@ -198,9 +201,10 @@ def main():
         [0, 0, 0, 0, 8, 0, 0, 7, 9]
     ]
     
-    grid = Grid.from_dim(4)
-    grid.remove_numbers(200)
+    grid = Grid.from_grid(grid_data)
+    #grid.remove_numbers(20)
     grid.solve(show_kwargs={'steps': 10000, 'sleep': 0.1})
+    print(grid.check_grid())
 
 if __name__ == '__main__':
     main()
