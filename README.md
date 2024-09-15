@@ -1,8 +1,20 @@
-# BruteForce Sudoku Solver
+# Neural Sudoku
+
+In this repository I'm trying to solve sudokus using a neural network. The idea is to train a neural network to solve sudokus and then use it to solve new sudokus.
+
+The project is divided in two parts:
+- A brute-force sudoku solver
+- A neural network sudoku solver
+
+The brute-force solver is used to generate training data for the neural network. The neural network is trained using the generated data and then used to solve new sudokus.
+
+The neural network is implemented using PyTorch.
+
+## BruteForce Sudoku
 
 This is a simple brute-force sudoku solver written in Python. It is not optimized for speed, but it is easy to understand and works well for small puzzles. It is based on the backtracking algorithm.
 
-## Usage
+### Usage
 
 The solver is implemented in the `Sudoku` class and an example is provided in the `main()` method of `sudoku.py` file. To solve a puzzle, create an instance of the class and call the `solve` method with the puzzle as a list of lists. Empty cells should be represented by `0`.
     
