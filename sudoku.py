@@ -2,7 +2,7 @@ import time
 import random
 from os import system, name
 
-class Grid():
+class Sudoku():
     def __init__(self, grid, square_root_dim):
         self.grid = grid
         self.square_root_dim = square_root_dim
@@ -201,10 +201,9 @@ def main():
         [0, 0, 0, 0, 8, 0, 0, 7, 9]
     ]
     
-    grid = Grid.from_grid(grid_data)
+    grid = Sudoku.from_grid(grid_data)
     #grid.remove_numbers(20)
-    grid.solve(show_kwargs={'steps': 10000, 'sleep': 0.1})
-    print(grid.check_grid())
+    grid.solve(show_kwargs={'steps': 10, 'sleep': 0.1})
 
 if __name__ == '__main__':
     main()
